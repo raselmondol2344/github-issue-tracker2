@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Github issue tracker</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@5"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+
+    <link
+      rel="shortcut icon"
+      href="assets/github-logo.png"
+      type="image/x-icon"
+    />
+  </head>
+  <body>
+    <div class="login-form-body min-h-screen max-w-md bg-white shadow-lg mx-auto mt-10 max-h-screen">
+      <div class="pic space-y-5 text-center py-10">
+        <img class="mx-auto" src="assets/github-logo.png" alt="" />
+        <h2 class="text-2xl font-bold">GitHub Issues Tracker</h2>
+        <p class="text-gray-400">Sign in to manage your issues</p>
+      </div>
+
+      <div class="form min-h-screen py-5">
+        <div class="hero-content flex-col lg:flex-row-reverse"> 
+          <div class="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl ">
+            <div class="card-body ">
+              <fieldset class="fieldset">
+                <label class="label font-bold text-black">Username</label>
+                <input id="user-name"  type="text" class="input" placeholder="Enter Username" />
+                <p class="text-indigo-800">Default: admin</p>
+                 <br>
+                <label class="label font-bold text-black">Password</label> 
+                <input id="user-password" type="password" class="input" placeholder="Enter Password" />
+                <p class="text-indigo-800">Default: admin123</p>
+                <!-- <div ><label class="flex items-center gap-2 py-2"><input type="radio" name="remember me" value="remember me ">Remember Me </label></div> -->
+                <button id="login-btn" class="btn btn-primary mt-4">Login</button>
+              </fieldset>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+   
+
+    
+    <script src="funconality.js"></script>
+  </body>
+</html>
