@@ -11,7 +11,7 @@ async function allIssuess (){
 
 function displayIssuess(issues){
     issues.forEach(issu => {
-        console.log(issu);
+        // console.log(issu);
 
         const card = document.createElement("div")
         card.innerHTML = `
@@ -102,43 +102,33 @@ function displayIssuess(issues){
 </div>
 
     `;
-        // <div class="card bg-base-100 shadow border-t-4 border-green-500  h-full">
-        //         <div class="card-body p-4">
-
-        //             <div class="flex justify-between items-center">
-        //                 <img src="./assets/Open-Status.png" alt="">
-        //                 <span class="badge badge-error">HIGH</span>
-        //             </div>
-
-        //             <h3 class="font-semibold text-[16px] mt-2">
-        //                 Fix navigation menu on mobile devices
-        //             </h3>
-
-        //             <p class="text-xs text-gray-500">
-        //                 fixed nevigration menu in mobile device
-        //             </p>
-
-        //             <div class="flex gap-2 mt-2">
-        //                 <span class="badge badge-error badge-outline">
-        //                     <i class="fa-solid fa-bug"></i> BUG
-        //                 </span>
-
-        //                 <span class="badge badge-warning badge-outline">
-        //                     <i class="fa-regular fa-life-ring"></i> HELP WANTED
-        //                 </span>
-        //             </div>
-
-        //             <div class="text-xs text-gray-400 mt-3">
-        //                 <p>#1 by john_doe</p>
-        //                 <p>1/15/2024</p>
-        //             </div>
-        //         </div>
-        //     </div> 
-        
-        
-        // `
         cardContainer.appendChild(card)
     });
 }
 
 allIssuess();
+
+
+// search bar funconality 
+ const search = document.getElementById("btnSearch").addEventListener("click", ()=>{
+    const input = document.getElementById("searchFild");
+    const searchValue = input.value.trim().toLowerCase();
+    console.log(searchValue);
+
+    fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${searchValue}`)
+    .then(res => res.json())
+    .then((data) =>{
+        console.log(data);
+        const searchCard = data.data;
+        cardContainer.innerHTML = ""; 
+        displayIssuess(searchCard);
+
+    } 
+
+
+          
+
+    );
+
+    
+});
