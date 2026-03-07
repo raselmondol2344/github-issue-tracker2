@@ -1,3 +1,6 @@
+
+// login form funconality
+
 const loginBtn = document.getElementById("login-btn");
 
 loginBtn.addEventListener("click", function () {
@@ -25,9 +28,8 @@ loginBtn.addEventListener("click", function () {
     return;
    }
 
-
-   
-
   
 
 });
+
+

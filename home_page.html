@@ -30,9 +30,41 @@
       type="image/x-icon"
     />
   </head>
-<body>
+<body> 
 
+  <section class="navbar mb-10">
+    <div class="navbar bg-base-100 shadow-sm justify-between absolute">
+    <div class="flex items-center gap-3 ">
+    <img class="max-h-10  max-w-16 px-2" src="assets/github-logo.png" alt="">
+    <h2 class=" md:text-2xl font-bold">GitHub Issues Tracker</h2>
+  </div> 
+  <div class="flex gap-10 relative right-3  md:right-5  ">
+    <input type="text" placeholder="Search issues... " class="input input-bordered w-24 md:w-auto" />
     
+      <div >
+         <button class="btn  btn-primary"> <i class="fa-solid fa-plus"></i>New Issue</button>
+      </div>
+    </div>
+  </div>
+  </section>
+
+
+  <div class="w-11/12 mx-auto store-btn  bg-white shadow-md py-3 space-x-5 px-10 md:justify-center mb-5 ">
+    <button class="btn btn-outline btn-primary w-25">All</button>
+    <button class="btn btn-outline btn-primary w-25" >Open</button>
+    <button class="btn btn-outline btn-primary w-25" >Closed</button>
+
+  </div>
+    
+ <section id="all-card" class=" w-11/12 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 px-2 md:px-6 lg:px-0   ">
+
+             <!-- dynamic card loaded -->
+  </section>
+
+
+
+ 
    
+   <script src="script/home.js"></script>
 </body> 
 </html>
