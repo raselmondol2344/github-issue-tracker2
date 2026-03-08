@@ -1,7 +1,7 @@
 const cardContainer = document.getElementById("all-card")
 
 async function allIssuess (){
-    const res = await fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues");
+    const res = await fetch("https://corsproxy.io/?"+encodeURIComponent("https://phi-lab-server.vercel.app/api/v1/lab/issues"));
     const data = await res.json();
     // console.log(data);
     displayIssuess(data.data)
@@ -9,7 +9,7 @@ async function allIssuess (){
 };
   // modal funconality 
   const cardDetails = async (id) => {
-  const url = `https://phi-lab-server.vercel.app/api/v1/lab/issue/${id}`;
+  const url = "https://corsproxy.io/?"+encodeURIComponent(`https://phi-lab-server.vercel.app/api/v1/lab/issue/${id}`);
   // console.log(url);
   const res = await fetch(url);
   const details = await res.json();
@@ -25,14 +25,14 @@ const displayModal = (issues) =>{
   <div class="card ">
   <h2 class="flex  justify-start text-2xl font-bold mb-5">${issues.title}</h2>
   <div class="cradit grid  grid-cols-3  items-center ">
-    <button class="btn max-w-25 border-none">${issues.status}</button>
+    <button class="btn bg-green-300 max-w-25 border-none ">${issues.status}</button>
     <p>${issues.author}</p>
     <p class="mr-10">${issues.createdAt.split("T")[0]}</p>
   </div>
    
   <div class="bug_help mt-10 space-x-5">
-   <button class="bg-yellow-300 p-1 rounded-sm">${issues.labels[0]}</button>
-   <button class ="bg-yellow-300 p-1 rounded-sm">${issues.labels[1]}</button>
+   <button class="bg-yellow-100 p-1 rounded-sm">${issues.labels[0]}</button>
+   <button class ="bg-yellow-100 p-1 rounded-sm">${issues.labels[1]}</button>
     
   </div>
 
