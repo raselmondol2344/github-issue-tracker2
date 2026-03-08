@@ -53,25 +53,51 @@
 
 
   <section class="w-11/12 mx-auto filter_btn  bg-white shadow-md py-3 space-x-5 px-10 md:justify-center mb-5 ">
-    <button class="btn btn-outline btn-primary w-25">All</button>
-    <button class="btn btn-outline btn-primary w-25" >Open</button>
-    <button class="btn btn-outline btn-primary w-25" >Closed</button>
+    <button onclick="filterIssues('all')" class="btn btn-outline btn-primary w-25">All</button>
+    <button onclick="filterIssues('open')"class="btn btn-outline btn-primary w-25" >Open</button>
+    <button onclick="filterIssues('closed')"class="btn btn-outline btn-primary w-25" >Closed</button>
 
   </section>
 
 
-  <section class="store_btn bg-white w-11/12  mx-auto h-full py-10 mb-8 rounded-sm shadow-md">
-    <h2>hello bd </h2>
+  <!-- <section class=" bg-white w-11/12  mx-auto h-full py-10 mb-8 rounded-sm shadow-md flex "> -->
+    <!-- issue  count section  -->
+            <div class="w-11/12 mx-auto py-5 mb-5 shadow-md">
+
+                <div class=" flex items-center justify-between py-4 flex-col sm:flex-row ">
+                    <div class="flex gap-3  mb-4 md:mb-0 ">
+                        <div class="w-[50px] h-[50px] rounded-full bg-[#ece4ff] flex justify-center items-center">
+                            <img src="./assets/Aperture.png" alt="">
+                        </div>
+                        <div>
+                            <h2 class="text-xl font-semibold">
+                                <span id="issue-count" class="inline-block">0</span> Issues
+                            </h2>
+                            <p class="text-gray-500">Track and manage your project issues</p>
+                        </div>
+                    </div>
+
+                    <!-- open closed section -->
+                    <div class="flex gap-3 items-center">
+                        <p class="font-semibold"><span
+                                class="w-[12px] h-[12px] rounded-full bg-green-500 inline-block"></span> Open</p>
+                        <p class="font-semibold"><span
+                                class="w-[12px] h-[12px] rounded-full bg-[#a855f7] inline-block"></span> Closed</p>
+                    </div>
+
+                </div>
+
+            </div>
 
 
-  </section>
+
+  <!-- </section> -->
     
  <section id="all-card" class=" w-11/12 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 px-2 md:px-6 lg:px-0   ">
-
+   
              <!-- dynamic card loaded -->
   </section>
-
-
+  
 
   <!-- modal -->
 

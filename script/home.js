@@ -1,12 +1,18 @@
+ let issueAllCard = [];
+ const countIssue = document.getElementById("issue-count")
+ 
+
 const cardContainer = document.getElementById("all-card")
 
 async function allIssuess (){
     const res = await fetch("https://corsproxy.io/?"+encodeURIComponent("https://phi-lab-server.vercel.app/api/v1/lab/issues"));
     const data = await res.json();
     // console.log(data);
+    issueAllCard = data.data
     displayIssuess(data.data)
 
 };
+// console.log(issueAllCard);
   // modal funconality 
   const cardDetails = async (id) => {
   const url = "https://corsproxy.io/?"+encodeURIComponent(`https://phi-lab-server.vercel.app/api/v1/lab/issue/${id}`);
@@ -65,6 +71,11 @@ const displayModal = (issues) =>{
 }
 
 function displayIssuess(issues){
+
+
+  cardContainer.innerHTML ="";
+  countIssue.innerText = issues.length;
+  
     issues.forEach(issu => {
         // console.log(issu);
 
@@ -184,6 +195,31 @@ allIssuess();
     
     
 });
+
+// filter btn display show in toggle
+function filterIssues(status) {
+    if (status === "all") {
+            displayIssuess(issueAllCard);
+        }
+
+        if (status === "open") {
+
+            const openIssues = issueAllCard.filter(issue => issue.status === "open");
+            displayIssuess(openIssues);
+
+        }
+
+        if (status === "closed") {
+            const closedIssues =issueAllCard.filter(issue => issue.status === "closed");
+           displayIssuess(closedIssues);
+        }
+
+
+
+    }
+
+    filterIssues("all");
+    
 
 
 
