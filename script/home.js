@@ -14,6 +14,7 @@ function displayIssuess(issues){
         // console.log(issu);
 
         const card = document.createElement("div")
+        // daynamic card 
         card.innerHTML = `
 
 
@@ -115,12 +116,13 @@ allIssuess();
     const searchValue = input.value.trim().toLowerCase();
     console.log(searchValue);
 
-    fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${searchValue}`)
+    // fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${searchValue}`)
+    fetch("https://corsproxy.io/?"+encodeURIComponent(`https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${searchValue}`))
     .then(res => res.json())
     .then((data) =>{
         console.log(data);
         const searchCard = data.data;
-        cardContainer.innerHTML = ""; 
+         cardContainer.innerHTML = ""; 
         displayIssuess(searchCard);
 
     } 
@@ -129,6 +131,7 @@ allIssuess();
           
 
     );
+    
 
     
 });
