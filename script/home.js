@@ -6,6 +6,61 @@ async function allIssuess (){
     // console.log(data);
     displayIssuess(data.data)
 
+};
+  // modal funconality 
+  const cardDetails = async (id) => {
+  const url = `https://phi-lab-server.vercel.app/api/v1/lab/issue/${id}`;
+  // console.log(url);
+  const res = await fetch(url);
+  const details = await res.json();
+  displayModal(details.data);
+}
+
+
+const displayModal = (issues) =>{
+  console.log(issues);
+
+  const modalBox = document.getElementById("modal_Details");
+  modalBox.innerHTML = `
+  <div class="card ">
+  <h2 class="flex  justify-start text-2xl font-bold mb-5">${issues.title}</h2>
+  <div class="cradit grid  grid-cols-3  items-center ">
+    <button class="btn max-w-25 border-none">${issues.status}</button>
+    <p>${issues.author}</p>
+    <p class="mr-10">${issues.createdAt.split("T")[0]}</p>
+  </div>
+   
+  <div class="bug_help mt-10 space-x-5">
+   <button class="bg-yellow-300 p-1 rounded-sm">${issues.labels[0]}</button>
+   <button class ="bg-yellow-300 p-1 rounded-sm">${issues.labels[1]}</button>
+    
+  </div>
+
+  <p class="py-5 text-[#64748B]">${issues.description}</p>
+
+  <div class="box grid grid-cols-2 w-11/12 mx-auto bg-[#1f293714] p-5 rounded-sm">
+
+  <div class="inline-block">
+  <p class="text-[#64748B]">assign:</p>
+  <p>${issues.assignee}</p>
+  </div>
+
+  <div>
+  <p class ="text-[#64748B]">pioroty:</p>
+  <p>${issues.priority}</p>
+  </div>
+    
+    
+  </div>
+
+
+</div>
+  
+   
+  
+  
+  `
+  document.getElementById("show_modal").showModal();
 
 }
 
@@ -15,10 +70,7 @@ function displayIssuess(issues){
 
         const card = document.createElement("div")
         // daynamic card 
-        card.innerHTML = `
-
-
-        <div onclick="fetchSingleIssue(${issu.id})" class="card h-full bg-base-100 shadow border-t-4 ${issu.status==="open"? "border-green-500": "border-violet-500"} ">
+        card.innerHTML = ` <div onclick="cardDetails(${issu.id})" class="card h-full bg-base-100 shadow border-t-4 ${issu.status==="open"? "border-green-500": "border-violet-500"} ">
 
   <div class="card-body p-4">
 
@@ -126,12 +178,13 @@ allIssuess();
         displayIssuess(searchCard);
 
     } 
-
-
-          
+        
 
     );
     
-
     
 });
+
+
+
+
