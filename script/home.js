@@ -5,17 +5,17 @@
 const cardContainer = document.getElementById("all-card")
 
 async function allIssuess (){
-    const res = await fetch("https://corsproxy.io/?"+encodeURIComponent("https://phi-lab-server.vercel.app/api/v1/lab/issues"));
-    const data = await res.json();
-    // console.log(data);
-    issueAllCard = data.data
-    displayIssuess(data.data)
+const res = await fetch('https://phi-lab-server.vercel.app/api/v1/lab/issues');
+const data = await res.json();
+ // console.log(data);
+issueAllCard = data.data
+displayIssuess(data.data)
 
 };
 // console.log(issueAllCard);
   // modal funconality 
   const cardDetails = async (id) => {
-  const url = "https://corsproxy.io/?"+encodeURIComponent(`https://phi-lab-server.vercel.app/api/v1/lab/issue/${id}`);
+ const url = `https://phi-lab-server.vercel.app/api/v1/lab/issue/${id}`; 
   // console.log(url);
   const res = await fetch(url);
   const details = await res.json();
@@ -180,7 +180,9 @@ allIssuess();
     console.log(searchValue);
 
     // fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${searchValue}`)
-    fetch("https://corsproxy.io/?"+encodeURIComponent(`https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${searchValue}`))
+  //  fetch(`https://api.allorigins.win/raw?url=https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${searchValue}`)
+    // fetch('https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q={searchText}')
+    fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${searchValue}`)
     .then(res => res.json())
     .then((data) =>{
         console.log(data);
